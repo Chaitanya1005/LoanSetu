@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanSetu | AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-mode">
+
+    <aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="brand">LoanSetu</div>
+        <button class="theme-toggle" onclick="toggleTheme()">
+    </button>
+    </div>
+
+    <button class="new-chat-btn" onclick="startNewChat()">
+        <span>+ New Chat</span>
+    </button>
+
+    <nav class="history-list"></nav>
+</aside>
+
+    <main class="main-content">
+
+        <div id="messages" class="messages"></div>
+
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1>Welcome to LoanSetu</h1>
+                <p>Your AI Loan Assistant.</p>
+            </div>
+        </div>
+
+        <div class="input-wrapper">
+            <div class="input-container">
+                <input id="msg" type="text" placeholder="Type your message..." autocomplete="on">
+                <button id="send" class="send-btn">➤</button>
+            </div>
+            <p class="footer-text">LoanSetu can make mistakes. Check important info.</p>
+        </div>
+
+    </main>
+
+
+<script src="chat.js"></script>
+</body>
+</html>

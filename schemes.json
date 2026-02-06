@@ -1,0 +1,159 @@
+[
+  {
+    "scheme_id": "CENT_BUSINESS_01",
+    "meta": {
+      "scheme_name": "Cent Business",
+      "category": "MSME",
+      "keywords": ["business","dhanda","vyapar","shop","dukan","store","retail","wholesale","wholesaler","retailer","manufacturing","factory","karkhana","service","agency","trading","merchant","supply","supplier","small business","msme","unit","enterprise"],
+      "notes": "General business loan; typically needs collateral"
+    },
+    "eligibility": {
+      "business_types": ["Manufacturing","Trading","Services"],
+      "gst_required": false,
+      "udyam_required": false,
+      "min_vintage_years": 0,
+      "loan_amount": { "min": 1100000, "max": 250000000 },
+      "turnover": { "min": 0, "max": 250000000 },
+      "primary_purpose": ["WorkingCapital","TermLoan","ShopPurchase","Equipment"],
+      "collateral": {
+        "required": true,
+        "allowed_types": ["Property"]
+      }
+    },
+    "preferences": {
+      "higher_vintage_bonus": true,
+      "higher_amount_bonus": true
+    }
+  },
+
+  {
+    "scheme_id": "CENT_GST_01",
+    "meta": {
+      "scheme_name": "Cent GST",
+      "category": "MSME",
+      "keywords": ["gst","goods service tax","gst wala","registered gst","gstin","billing","bill banata hun","tax invoice","manufacturer","gst trader","online billing","udhyog gst","return file","b2b supply"],
+      "notes": "GST-linked scheme; manufacturing needs >=1 year vintage"
+    },
+    "eligibility": {
+      "business_types": ["Manufacturing","Trading","Services"],
+      "gst_required": true,
+      "udyam_required": false,
+      "min_vintage_years": 1,
+      "loan_amount": { "min": 1000000, "max": 50000000 },
+      "turnover": { "min": 0, "max": 50000000 },
+      "primary_purpose": ["WorkingCapital","TermLoan"],
+      "collateral": {
+        "required": false,
+        "allowed_types": ["CGTMSE","Property"]
+      }
+    },
+    "preferences": {
+      "collateral_bonus": true,
+      "higher_vintage_bonus": true
+    }
+  },
+
+  {
+    "scheme_id": "CENT_CA_01",
+    "meta": {
+      "scheme_name": "Cent CA",
+      "category": "Professional",
+      "keywords": ["ca","chartered accountant","cma","cs","company secretary","accountant","tax consultant","auditor","ca firm","practice","professional practice","accounts office","itr ka kaam","tax filing"],
+      "notes": "For CA/CS/CMA professionals; smaller ticket sizes"
+    },
+    "eligibility": {
+      "business_types": ["Professional"],
+      "gst_required": false,
+      "udyam_required": false,
+      "min_vintage_years": 0,
+      "loan_amount": { "min": 500000, "max": 20000000 },
+      "turnover": { "min": 0, "max": 20000000 },
+      "primary_purpose": ["TermLoan","WorkingCapital","OfficeRenovation"],
+      "collateral": {
+        "required": false,
+        "allowed_types": ["CGTMSE","Property"]
+      }
+    },
+    "preferences": {
+      "lower_amount_preference": true
+    }
+  },
+
+  {
+    "scheme_id": "CENT_TEXTILE_01",
+    "meta": {
+      "scheme_name": "Cent Textile",
+      "category": "Sectoral",
+      "keywords": ["textile","kapda","kapde","readymade","garment","silayi","silai","stitching","tailor","tailoring","kapda factory","kapda unit","loom","weaving","knitting","spinning","dyeing","fabric","apparel","kurti","shirt unit","jeans unit"],
+      "notes": "Textile-focused lending"
+    },
+    "eligibility": {
+      "business_types": ["Manufacturing","Trading"],
+      "gst_required": false,
+      "udyam_required": true,
+      "min_vintage_years": 0,
+      "loan_amount": { "min": 5000000, "max": 250000000 },
+      "turnover": { "min": 0, "max": 250000000 },
+      "primary_purpose": ["WorkingCapital","TermLoan","Equipment"],
+      "collateral": {
+        "required": true,
+        "allowed_types": ["Property"]
+      }
+    },
+    "preferences": {
+      "sector_match_bonus": true
+    }
+  },
+
+  {
+    "scheme_id": "PM_SVANIDHI_01",
+    "meta": {
+      "scheme_name": "PM SVANidhi",
+      "category": "Government",
+      "keywords": ["street vendor","rehdi","redi","patri","footpath vendor","thela","gadi","cart stall","hawker","food stall","chai stall","juice stall","panipuri","vadapav","vegetable vendor","fruit vendor","phool wala"],
+      "notes": "Micro street vendor scheme"
+    },
+    "eligibility": {
+      "business_types": ["StreetVendor"],
+      "gst_required": false,
+      "udyam_required": false,
+      "min_vintage_years": 0,
+      "loan_amount": { "min": 10000, "max": 100000 },
+      "turnover": { "min": 0, "max": 200000 },
+      "primary_purpose": ["WorkingCapital"],
+      "collateral": {
+        "required": false,
+        "allowed_types": []
+      }
+    },
+    "preferences": {
+      "micro_loan_priority": true
+    }
+  },
+
+  {
+    "scheme_id": "PM_FME_PRAGATI_01",
+    "meta": {
+      "scheme_name": "PM FME / Pragati",
+      "category": "Government",
+      "keywords": ["food processing","atta chakki","flour mill","rice mill","oil mill","masala mill","food packaging","agro processing","khadya","bakery","papad unit","achar unit","namkeen factory"],
+      "notes": "Food processing and micro manufacturing support"
+    },
+    "eligibility": {
+      "business_types": ["Manufacturing","FoodProcessing"],
+      "gst_required": false,
+      "udyam_required": false,
+      "min_vintage_years": 0,
+      "loan_amount": { "min": 500000, "max": 25000000 },
+      "turnover": { "min": 0, "max": 25000000 },
+      "primary_purpose": ["TermLoan","Equipment","WorkingCapital"],
+      "collateral": {
+        "required": true,
+        "allowed_types": ["Property"]
+      }
+    },
+    "preferences": {
+      "manufacturing_bonus": true
+    }
+  }
+]
