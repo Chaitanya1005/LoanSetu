@@ -25,6 +25,9 @@ app.post("/message", async (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/chat.html"));
 });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`LoanSetu running on port ${PORT}`);
+});
 
-app.listen(3000, () => console.log("LoanSetu running at http://localhost:3000/"));
 
