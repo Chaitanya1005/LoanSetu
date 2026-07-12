@@ -5,24 +5,8 @@ function normalize(text) {
 function detectYesNo(text) {
   const t = normalize(text);
 
-  if (/\b(yes|haan|hanji|ha|bilkul|sure)\b/.test(t)) return true;
-  if (/\b(no|nahi|nahin|na|nope)\b/.test(t)) return false;
-
-  return null;
-}
-
-function detectBusinessType(text) {
-  const t = normalize(text);
-
-  if (/manfacturing|manufactring/.test(t)) return "Manufacturing";
-  if (/textile|garment|kapda|boutique/.test(t)) return "Manufacturing";
-  if (/factory|manufacturing|unit|karkhana/.test(t)) return "Manufacturing";
-  if (/trading|wholesale|trader/.test(t)) return "Trading";
-  if (/retail|shop|dukan|store/.test(t)) return "Trading";
-  if (/ca|chartered accountant|audit/.test(t)) return "Professional";
-  if (/food|bakery|atta|rice mill|oil mill/.test(t)) return "FoodProcessing";
-  if (/vendor|rehdi|thela|hawker/.test(t)) return "StreetVendor";
-  if (/service|agency|consult/.test(t)) return "Services";
+  if (/\b(yes|haan|hanji|ha|bilkul|sure|y|ya|h)\b/.test(t)) return true;
+  if (/\b(no|nahi|nahin|na|nope|n)\b/.test(t)) return false;
 
   return null;
 }
@@ -30,10 +14,10 @@ function detectBusinessType(text) {
 function detectLoanAmount(text) {
   const t = normalize(text);
 
-  let m = t.match(/([\d\.]+)\s*(lakh|lac)/);
+  let m = t.match(/([\d\.]+)\s*(lakh|lac|lakhs|lacs|l)/);
   if (m) return Number(m[1]) * 100000;
 
-  m = t.match(/([\d\.]+)\s*(crore|cr)/);
+  m = t.match(/([\d\.]+)\s*(crore|cr|crores)/);
   if (m) return Number(m[1]) * 10000000;
 
   m = t.match(/([\d,]+)/);
@@ -42,48 +26,37 @@ function detectLoanAmount(text) {
   return null;
 }
 
-function detectTurnover(text) {
+function detectCibilScore(text) {
   const t = normalize(text);
-
-  let m = t.match(/([\d\.]+)\s*(crore|cr)/);
-  if (m) return Number(m[1]) * 10000000;
-
-  m = t.match(/([\d\.]+)\s*(lakh|lac|lakhs)/);
-  if (m) return Number(m[1]) * 100000;
-
-  m = t.match(/([\d,]+)/);
-  if (m) return Number(m[1].replace(/,/g, ""));
-
+  // Match any 3 digit number between 300 and 900
+  const m = t.match(/\b([3-9]\d{2})\b/);
+  if (m) {
+    const score = Number(m[1]);
+    if (score >= 300 && score <= 900) return score;
+  }
   return null;
 }
 
-function detectLoanPurpose(text) {
+function detectCollateralPct(text) {
   const t = normalize(text);
 
-  if (/working\s*capital|wc/.test(t)) return "WorkingCapital";
-  if (/term\s*loan|tl/.test(t)) return "TermLoan";
-  if (/equipment|machine|machinery/.test(t)) return "Equipment";
+  if (/\b(none|no collateral|cgtmse|zero|0)\b/.test(t)) {
+    return 0;
+  }
 
-  return null;
-}
-
-function detectVintage(text) {
-  const t = normalize(text);
-
-  let m = t.match(/(\d+)\s*(year|years|yr|yrs)/);
-  if (m) return Number(m[1]);
-
-  m = t.match(/since\s*(\d{4})/);
-  if (m) return new Date().getFullYear() - Number(m[1]);
+  // Match any number followed by % or word "percent" or just the number
+  const m = t.match(/(\d+)\s*%?/) || t.match(/(\d+)\s*(percent|percentage)/);
+  if (m) {
+    const val = Number(m[1]);
+    if (val >= 0 && val <= 1000) return val; // allow up to 1000% just in case, though normally <= 100%
+  }
 
   return null;
 }
 
 module.exports = {
-  detectBusinessType,
+  detectYesNo,
   detectLoanAmount,
-  detectTurnover,
-  detectLoanPurpose,
-  detectVintage,
-  detectYesNo
+  detectCibilScore,
+  detectCollateralPct
 };

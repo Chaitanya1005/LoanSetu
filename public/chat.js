@@ -7,11 +7,31 @@ const sunSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" styl
 
 const userId = crypto.randomUUID();
 
+// Escape HTML helper
+function escapeHTML(text) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Format bold text
+function formatMarkdown(text) {
+  const escaped = escapeHTML(text);
+  return escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+}
+
 // Add message bubble
 function addMessage(text, sender) {
   const div = document.createElement("div");
   div.className = `msg ${sender}`;
-  div.textContent = text;
+  if (sender === "bot") {
+    div.innerHTML = formatMarkdown(text);
+  } else {
+    div.textContent = text;
+  }
   messages.appendChild(div);
   messages.scrollTop = messages.scrollHeight;
 }
@@ -25,6 +45,12 @@ function showTyping() {
   messages.scrollTop = messages.scrollHeight;
   return t;
 }
+
+// Reset session / clear history
+function startNewChat() {
+  window.location.reload();
+}
+
 
 function toggleTheme() {
 

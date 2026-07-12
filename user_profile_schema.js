@@ -1,11 +1,9 @@
 module.exports = {
-  business_type: null,
-  gst_registered: null,
-  udyam_registered: null,
-  vintage_years: null,
-  loan_amount: null,
-  turnover: null,
-  employment_type: null,
-  loan_purpose: null,
-  collateral_type: null
+  is_hospitality: null,         // true/false
+  udyam_registered: null,       // true/false
+  loan_amount: null,            // number in rupees
+  cibil_score: null,            // number
+  is_huf_or_trust: null,        // true/false
+  collateral_value_pct: null,   // number (percentage, e.g. 50, 75, 100)
 };
+

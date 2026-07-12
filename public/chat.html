@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoanSetu | AI Assistant</title>
+    <title>LoanSetu | Internal Staff Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="dark-mode">
 
     <aside class="sidebar">
-    <div class="sidebar-header">
-        <div class="brand">LoanSetu</div>
-        <button class="theme-toggle" onclick="toggleTheme()">
-    </button>
-    </div>
+        <div class="sidebar-header">
+            <div class="brand">LoanSetu Portal</div>
+            <button class="theme-toggle" onclick="toggleTheme()"></button>
+        </div>
 
-    <button class="new-chat-btn" onclick="startNewChat()">
-        <span>+ New Chat</span>
-    </button>
+        <button class="new-chat-btn" onclick="startNewChat()">
+            <span>+ New Session</span>
+        </button>
 
-    <nav class="history-list"></nav>
-</aside>
+        <nav class="history-list">
+            <div class="history-item active">Current Session</div>
+        </nav>
+    </aside>
 
     <main class="main-content">
 
@@ -30,21 +31,32 @@
         <div class="welcome-container">
             <div class="welcome-header">
                 <h1>Welcome to LoanSetu</h1>
-                <p>Your AI Loan Assistant.</p>
+                <p class="subtitle">Internal AI Assistant for **CENT HOTEL** Scheme Circular (No. 4114)</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="icon">📊</span>
+                        <h3>Eligibility Check</h3>
+                        <p>Evaluate customer profiles and generate calculated interest rate matrices based on collateral, rating, and tenor.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon">🔍</span>
+                        <h3>Circular Q&A</h3>
+                        <p>Ask free-form questions about margins, documentation, CIBIL waivers, and takeover norms.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="input-wrapper">
             <div class="input-container">
-                <input id="msg" type="text" placeholder="Type your message..." autocomplete="on">
+                <input id="msg" type="text" placeholder="Type '1' for Diagnostic, ask a policy question, or type 'menu'..." autocomplete="on">
                 <button id="send" class="send-btn">➤</button>
             </div>
-            <p class="footer-text">LoanSetu can make mistakes. Check important info.</p>
+            <p class="footer-text">LoanSetu Staff Portal. Always cross-verify calculations and deviations with the official Master Circular document before final sanctioning.</p>
         </div>
 
     </main>
 
-
-<script src="chat.js"></script>
+    <script src="chat.js"></script>
 </body>
 </html>
