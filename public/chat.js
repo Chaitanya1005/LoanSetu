@@ -97,7 +97,7 @@ async function sendMessage() {
 
   addMessage(text, "user");
   input.value = "";
-
+  sendBtn.disabled = true;
   const typing = showTyping();
 
   try {
@@ -110,8 +110,9 @@ async function sendMessage() {
     const data = await res.json();
     typing.remove();
     addMessage(data.reply, "bot");
-
+    sendBtn.disabled = false;
   } catch (e) {
+    sendBtn.disabled = false;
     if (typing) typing.remove();
     addMessage("Server not responding ⚠", "bot");
   }
@@ -139,16 +140,14 @@ function toggleTheme() {
   }
 }
 
-// Set initial theme icon and show greeting
 window.addEventListener('DOMContentLoaded', () => {
-  const iconContainer = document.querySelector('.theme-toggle');
-  if (document.body.classList.contains('dark-mode')) {
-    iconContainer.innerHTML = sunSVG;
-  } else {
-    iconContainer.innerHTML = moonSVG;
-  }
+  // Force Light Mode on startup
+  document.body.classList.remove('dark-mode');
 
-  // Pre-load the welcome message from the bot
+  const iconContainer = document.querySelector('.theme-toggle');
+  iconContainer.innerHTML = moonSVG;
+
+  // Pre-load the welcome message
   addMessage(`👋 Hello! I am the **Cent Loansetu AI Assistant** for Central Bank of India staff.
 
 I am trained on the **Cent Hotel Master Circular (No. 4114, 16.09.2024)**.

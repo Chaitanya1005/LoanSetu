@@ -232,7 +232,7 @@ Due Diligence of the property to be mortgaged:
 - Collateral security to be fully insured with Bank's Hypothecation Clause preferably through our channel partners.
 
 37. ROUTING OF TRANSACTIONS:
-- Transactions relating to the activity for which finance under CENT HOTEL is granted should be routed only through the Overdraft account maintained with the branch.
+- Transactions relating to the activity for which finance under is granted should be routed only through the Overdraft account maintained with the branch.
 
 38. SERVICE CHARGES:
 - Other Service Charges will be applicable, as per Bank's extant guidelines.
